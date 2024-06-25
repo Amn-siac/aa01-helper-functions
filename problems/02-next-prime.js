@@ -6,8 +6,29 @@ Write a function nextPrime(number) that accepts a number as an argument. The
 function should return the nearest prime number that is greater than the given
 number.
 */
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
 
-// Your code here 
+
+function nextPrime(num) {
+  let prime;
+  for (let i = 1; prime === undefined; i++) {
+    if (isPrime(num + i)) {
+      prime = num + i;
+    }
+  }
+  return prime;
+}
+
 
 // console.log(nextPrime(2)); // 3
 // console.log(nextPrime(3)); // 5

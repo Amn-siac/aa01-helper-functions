@@ -9,7 +9,17 @@ isPrime(10) should be false because it is divisible by the integers 10, 1, 5,
 and 2 (10 / 5 = 2 and 10 / 1 = 10).
 */
 
-// Your code here 
+function isPrime(num) {
+    if (num < 2) {
+        return false;
+    }
+    for (let i = 2; i < num; i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
 
 // console.log(isPrime(2)); // => true
 // console.log(isPrime(10)); // => false

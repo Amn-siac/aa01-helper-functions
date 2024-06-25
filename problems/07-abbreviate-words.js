@@ -8,7 +8,30 @@ characters have their vowels removed. Use the removeVowels helper function
 to remove the vowels of the words.
 */
 
-// Your code here 
+function removeVowels(word) {
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+  word = word.split('');
+  for (let i = word.length - 1; i >= 0; i--) {
+    if (vowels.includes(word[i])) {
+      word.splice(i, 1);
+    }
+  }
+  return word.join('');
+}
+
+function abbreviateWords(sentence) {
+  let words = [];
+  sentence = sentence.split(' ');
+
+  for (let i = 0; i < sentence.length; i++) {
+    if (sentence[i].length <= 4) {
+      words.push(sentence[i]);
+    } else {
+      words.push(removeVowels(sentence[i]))
+    }
+  }
+  return words.join(' ')
+}
 
 // console.log(removeVowels("hello")); // hll
 // console.log(removeVowels("what"));  // wht

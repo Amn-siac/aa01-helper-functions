@@ -7,7 +7,28 @@ the sentence where every word is missing its last vowel. Use the removeLastVowel
 function as a helper function.
 */
 
-// Your code here 
+function removeLastVowel(word) {
+  let vowels = ['a', 'e', 'i', 'o', 'u']
+  word = word.split('');
+  for (let i = word.length - 1; i >= 0; i--) {
+    if (vowels.includes(word[i])) {
+      word.splice(i, 1);
+      word = word.join('');
+      return word;
+    }
+  }
+  return word.join('');
+}
+
+function hipsterfy(sentence) {
+  sentence = sentence.split(' ');
+  let words = [];
+  for (let i = 0; i < sentence.length; i++) {
+    let word = removeLastVowel(sentence[i]);
+    words.push(word);
+  }
+  return words.join(' ')
+}
 
 // console.log(hipsterfy("When should everyone wake up?")); // 'Whn shold everyon wak p?'
 // console.log(hipsterfy("get ready for our bootcamp")); // 'gt redy fr or bootcmp'

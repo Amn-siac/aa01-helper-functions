@@ -7,7 +7,27 @@ function should return an array containing all of the prime numbers that can
 divide the given number evenly. Use the isPrime function as a helper function.
 */
 
-// Your code here 
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function primeFactors(num) {
+  let arr = [];
+  for (let i = num; i >= 2; i--) {
+    if (isPrime(i) && num % i === 0) {
+      arr.push(i);
+    }
+  }
+  return arr.reverse();
+}
 
 // console.log(primeFactors(12)); // [2, 3]
 // console.log(primeFactors(7)); // [7]

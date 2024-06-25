@@ -8,7 +8,31 @@ argument. Since 2 is the smallest prime number, return null if no number can be
 returned. Use the isPrime function as a helper function.
 */
 
-// Your code here 
+function isPrime(num) {
+  if (num < 2) {
+    return false;
+  }
+  for (let i = 2; i < num; i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+
+function prevPrime(num) {
+  let prime;
+  if (num <= 2) {
+    return null;
+  }
+  for (let i = 1; prime === undefined; i++) {
+    if (isPrime(num - i)) {
+      prime = num - i;
+    }
+  }
+  return prime;
+}
 
 // console.log(prevPrime(32)); // 31
 // console.log(prevPrime(33)); // 31
